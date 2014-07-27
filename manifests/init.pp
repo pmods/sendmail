@@ -1,5 +1,5 @@
 class sendmail (
-    $configmc = '/root/etc/mail/sendmail.cf',
+    $configmc = '/root/etc/mail/sendmail.mc',
     $aliases  = '/root/etc/mail/aliases',
 ) {
 
