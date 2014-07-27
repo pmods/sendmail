@@ -5,7 +5,7 @@ class sendmail (
 
     $execpath    = '/bin:/sbin:/usr/bin:/usr/sbin'
 
-    file { 'sendmail_mc' {
+    file { 'sendmail_mc': 
         path   => "/etc/mail/${fqdn}.mc",
         ensure => file,
         owner  => 'root',
@@ -14,7 +14,7 @@ class sendmail (
         notify => Exec['mail_make']
     }
 
-    file { 'mail_aliases': {
+    file { 'mail_aliases':
         path   => "/etc/mail/aliases",
         ensure => file,
         owner  => 'root',
@@ -23,7 +23,7 @@ class sendmail (
         notify => Exec['mail_make']
     }
 
-    exec { 'mail_make': {
+    exec { 'mail_make':
         command => "make",
         creates => "/etc/mail/${fqdn}.cf",
         user    => 'root',
@@ -38,4 +38,4 @@ class sendmail (
         ensure => running,
         enable => true
     }
-
+}
